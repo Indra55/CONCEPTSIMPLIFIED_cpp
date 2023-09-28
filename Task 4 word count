@@ -1,0 +1,25 @@
+//Task 4
+//word count
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    ifstream filein;
+    filein.open("Countthewords.txt");
+
+    string word;
+    int count = 0;
+
+    while (filein >> word) {
+        count++;
+    }
+
+    cout << "The number of words in the file are: " << count << endl;
+
+    filein.close();
+
+    return 0;
+}
