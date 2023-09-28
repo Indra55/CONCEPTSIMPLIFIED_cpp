@@ -1,0 +1,50 @@
+//Task 2
+//SIMPLE CALCULATOR
+#include<iostream>
+
+int main()
+{
+    char operation
+    double num1,num2,result;
+
+    std::cout<<"Enter the First Number:"<<std::endl;
+    std::cin>>num1;
+
+    std::cout<<"Enter the Second Number:"<<std::endl;
+    std::cin>>num2;
+
+    std::cout<<"Select the operation (+,-,*,/):"<<std::endl;
+    std::cin>>operation;
+
+    switch (operation){
+        case '+':
+        result = num1 + num2;
+        std::cout<<"The result is:"<<result;
+        break;
+
+        case '-':
+        result = num1 - num2;
+        std::cout<<"The result is:"<<result;
+        break;
+
+        case '*':
+        result = num1 * num2;
+        std::cout<<"The result is:"<<result;
+        break;
+        
+        case '/':
+        result = num1 / num2;
+        std::cout<<"The result is:"<<result;
+        break;
+
+        default:
+        std::cout<<"Syntax error"<<std::endl;
+        break;
+    }
+
+    return 0;
+    
+    
+
+
+}
