@@ -1,0 +1,82 @@
+//Task 3
+//STUDENT GRADING SYSTEM
+#include <iostream>
+#include <iomanip>
+#include <limits>
+using namespace std;
+
+int main() {
+    const int maxStudents = 1;    
+    const int numSubjects = 3;    
+    char students[maxStudents][100]; 
+    char grades[maxStudents][numSubjects];
+
+    for (int i = 0; i < maxStudents; i++) {
+        cout << "Enter name for student " << (i + 1) << ": ";
+        cin >> students[i];
+
+        cout << "Enter grades for student " << (i + 1) << " (Enter space-separated letter grades for " << numSubjects << " subjects - Physics, Chemistry, and Maths): ";
+        
+        for (int j = 0; j < numSubjects; j++) {
+            cin >> grades[i][j];
+        }
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    cout << "-----------------------------------------------" << endl;
+    cout << setw(12) << left << "Student" << setw(25) << left << "Grades" << "Average Grade" << endl;
+    cout << "-----------------------------------------------" << endl;
+
+    for (int i = 0; i < maxStudents; i++) {
+        cout << setw(12) << left << "Student " << (i + 1) << ": ";
+        
+        for (int j = 0; j < numSubjects; j++) {
+            cout << setw(5) << left << grades[i][j] << " ";
+        }
+        
+        int totalGrade = 0;
+        for (int j = 0; j < numSubjects; j++) {
+            char grade = grades[i][j];
+            int numericGrade;
+
+            switch (grade) {
+                case 'A':
+                    numericGrade = 90;
+                    break;
+                case 'B':
+                    numericGrade = 75;
+                    break;
+                case 'C':
+                    numericGrade = 60;
+                    break;
+                case 'D':
+                    numericGrade = 45;
+                    break;
+                default:
+                    numericGrade = 0; 
+            }
+
+            totalGrade += numericGrade;
+        }
+        double averageGrade = static_cast<double>(totalGrade) / numSubjects;
+        
+        char letterGrade;
+        if (averageGrade > 90) {
+            letterGrade = 'A';
+        } else if (averageGrade > 75) {
+            letterGrade = 'B';
+        } else if (averageGrade > 60) {
+            letterGrade = 'C';
+        } else if (averageGrade > 45) {
+            letterGrade = 'D';
+        } else {
+            letterGrade = 'F';
+        }
+
+        cout << setw(13) << right << fixed << setprecision(2) << averageGrade << " - " << letterGrade;
+        cout << endl;
+    }
+
+    return 0;
+}
