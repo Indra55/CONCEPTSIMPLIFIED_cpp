@@ -1,50 +1,41 @@
 //Task 2
 //SIMPLE CALCULATOR
-#include<iostream>
+#include <iostream>
 
-int main()
-{
-    char operation;
-    double num1,num2,result;
+using namespace std;
 
-    std::cout<<"Enter the First Number:"<<std::endl;
-    std::cin>>num1;
+int main() {
+  // Declare variables.
+  int num1, num2;
+  char operator_;
 
-    std::cout<<"Enter the Second Number:"<<std::endl;
-    std::cin>>num2;
+  // Get the two numbers and the operator from the user.
+  cout << "Enter the first number: ";
+  cin >> num1;
 
-    std::cout<<"Select the operation (+,-,*,/):"<<std::endl;
-    std::cin>>operation;
+  cout << "Enter the second number: ";
+  cin >> num2;
 
-    switch (operation){
-        case '+':
-        result = num1 + num2;
-        std::cout<<"The result is:"<<result;
-        break;
+  cout << "Enter the operator (+, -, *, /): ";
+  cin >> operator_;
 
-        case '-':
-        result = num1 - num2;
-        std::cout<<"The result is:"<<result;
-        break;
+  // Switch statement to perform the operation.
+  switch (operator_) {
+    case '+':
+      cout << num1 << " + " << num2 << " = " << num1 + num2 << endl;
+      break;
+    case '-':
+      cout << num1 << " - " << num2 << " = " << num1 - num2 << endl;
+      break;
+    case '*':
+      cout << num1 << " * " << num2 << " = " << num1 * num2 << endl;
+      break;
+    case '/':
+      cout << num1 << " / " << num2 << " = " << num1 / num2 << endl;
+      break;
+    default:
+      cout << "Invalid operator." << endl;
+  }
 
-        case '*':
-        result = num1 * num2;
-        std::cout<<"The result is:"<<result;
-        break;
-        
-        case '/':
-        result = num1 / num2;
-        std::cout<<"The result is:"<<result;
-        break;
-
-        default:
-        std::cout<<"Syntax error"<<std::endl;
-        break;
-    }
-
-    return 0;
-    
-    
-
-
+  return 0;
 }
